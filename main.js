@@ -5,11 +5,11 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
 
         var svg = d3.select('body').append('svg')
             .attr('width',900)
-            .attr('height',900)
-            .style('background','grey')
+            .attr('height',800)
+            .style('background','lightSkyBlue')
 
         var force = d3.layout.force()
-            .size([900,900])
+            .size([900,800])
             .charge(-100)
             .nodes(nodes)
             .links(links)
@@ -37,6 +37,7 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
             .call(force.drag)
 
 
+
         force.on('tick',function(){
             link.attr('x1',function(d){
                     return d.source.x
@@ -58,6 +59,7 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
                     return d.y-5
                 })
         })
+
 
         force.start()
 
